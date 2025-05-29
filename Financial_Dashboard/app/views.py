@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.http import HttpResponse
 from django.template import loader
 import os
@@ -7,7 +7,15 @@ from datetime import datetime
 
 def index(request):
     template = loader.get_template('app/index.html')
-    return HttpResponse(template.render(context=None, request=request))
+    pages = {
+        'Main page': reverse('index'),
+        'Show current time': reverse('current time'),
+        'Show contents of current directory': reverse('work directory')
+    }
+    context = {
+        'pages': pages
+    }
+    return HttpResponse(template.render(context=context, request=request))
 
 
 def current_time(request):

@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+      <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    a {
+        color:blanchedalmond
+    }
+  </style>
+    <title>Financial Dashboard</title>
 </head>
 <body>
-    <p><a href="curtime/">Узнать текущее время</a></p>
-    <p><a href="workdir/">Узнать текущий рабочий каталог</a></p>
+    <h1>Financial Dashboard</h1>
+    <h3>Select section</h3>
+    {% for title, url in pages.items %}
+        <p><a href="{{ url }}">{{ title }}</a></p>
+    {% endfor %}
 </body>
 </html>
