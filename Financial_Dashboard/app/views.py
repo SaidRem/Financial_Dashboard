@@ -17,6 +17,7 @@ def current_time(request):
 
 
 def workdir(request):
-    contents = os.listdir()
-    res = '\n'.join(contents)
+    workdir = os.getcwd()
+    listdir = os.listdir()
+    res = f'Current working directory: {workdir}\n\nContents: =>\n' + '\n'.join(listdir)
     return HttpResponse(res, content_type=r'text\plain; charset=utf-8')
